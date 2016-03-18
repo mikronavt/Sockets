@@ -1,8 +1,6 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -17,15 +15,14 @@ public class Main {
         System.out.println("Server started!");
 
 
+
         while(true){
             Socket s = serverSocket.accept();
-            InputStream inputStream = s.getInputStream();
-            InputStreamReader reader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(reader);
-            while(bufferedReader.ready()){
-                String l = bufferedReader.readLine();
-                System.out.println(l);
-            }
+
+            SocketThread t = new SocketThread(s);
+            t.start();
+
+
         }
     }
 }
