@@ -12,7 +12,7 @@ public class Main {
 
         ServerSocket serverSocket = new ServerSocket(5050);
 
-        System.out.println("Server started!");
+        System.out.println("Server started");
 
 
 
