@@ -21,6 +21,7 @@ public class SocketThread extends Thread{
             BufferedReader reader = new BufferedReader(inputStreamReader);
 
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+            outputStreamWriter.write("");
             BufferedWriter writer = new BufferedWriter(outputStreamWriter);
 
             String l;
@@ -32,7 +33,7 @@ public class SocketThread extends Thread{
                     break;
 
                 }
-                writer.write(l);
+                writer.write(l + "\n");
                 writer.flush();
             }
         } catch (Exception e){
